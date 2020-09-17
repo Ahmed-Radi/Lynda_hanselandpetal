@@ -32,7 +32,7 @@ function getColor($filename){
 	$parts = explode('_',$filename);
 	return ucfirst($parts[2]);
 }
-
+$total = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,39 +61,59 @@ function getColor($filename){
             <?php } else { ?>
             <p>Please check the details of your order.</p>
 				<table id="order_details">
-				    <tr>
-				        <th scope="col">&nbsp;</th>
-				        <th scope="col">Item</th>
-				        <th scope="col">Color</th>
-				        <th scope="col">Quantity</th>
-				        <th scope="col">Cost</th>
-			        </tr>
+					<tr>
+						<th scope="col">&nbsp;</th>
+						<th scope="col">Item</th>
+						<th scope="col">Color</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Cost</th>
+					</tr>
                     <?php foreach ($quantity AS $flowername => $amount):
 					if ($amount > 0) :
 					?>
-				    <tr>
-				        <td><img src="images/<?php
+					<tr>
+						<td><img src="images/<?php
                         if (isset($color[$flowername])) {
-							echo $color[$flowername];
+							echo $color[$flowername];/**the result from this array is equal value the value is
+							the name of the picture but this contains some picture and the 'image' array contain the rest, Because all flowers do not contain colors*/
 						} else {
 							echo $image[$flowername];
 						}
 						?>.jpg" alt="" width="80" height="80"/></td>
-				        <td><?php echo str_replace('_', ' ', $flowername); ?></td>
-				        <td><?php
+						<td><?php echo str_replace('_', ' ', $flowername); ?></td>
+						<td><?php
 								if(isset($color[$flowername])){
 									echo getColor($color[$flowername]);
 								}else{
 									echo('&nbsp;');
 								}
 							?></td>
-				        <td><?php echo $amount; ?></td>
-				        <td>$</td>
-			        </tr>
-                    <?php 
+						<td><?php echo $amount; ?></td>
+						<td>$<?php echo $cost = $amount * $price[$flowername];
+								$total += $cost;
+						?></td>
+					</tr>
+                    <?php
 					endif;
 					endforeach; ?>
-			    </table>
+					<tr>
+						<td colspan="4">Shipping</td>
+						<td>
+							<?php
+								if($total < 75){
+									echo '$10';
+									$total += 10;
+								}else{
+									echo 'Free';
+								}
+							?>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">Total</td>
+						<td>$<?php echo $total;?></td>
+					</tr>
+				</table>
             <div id="order_buttons">
             <form method="post">
                 <span><input class="btn alt" value="Cancel Order" name="cancel" id="cancel" type="submit"></span>
@@ -105,7 +125,7 @@ function getColor($filename){
     </div>
 <?php include './includes/footer.php'; ?>
 </div>
-<script src="js/jquery-1.10.2.min.js"></script> 
+<script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
 </html>

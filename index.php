@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +30,7 @@ $specials_alt = [
     'October special: Purple orchids',
     'November special: Bonsai with rock',
     'December special: Dried flowers for decoration'
-     ];
+];
 
 $features = array(
     'winter' => 'Beautiful arrangements for any occasion.',

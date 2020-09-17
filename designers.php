@@ -20,7 +20,7 @@
         <div id="col_1" role="main">
             <h1 class="inline_block">Our Favorite Arrangements</h1>
             <h2 class="h3 inline_block">From Our Talented Designers</h2>
-            <p>Through the years we have created some really special floral 
+            <p>Through the years we have created some really special floral
                 arrangements for our customers, and these are a few of our favorites.</p>
             <div class="section">
                 <ul class="reset tiles">
@@ -74,7 +74,7 @@
     </div>
 <?php include './includes/footer.php'; ?>
 </div>
-<script src="js/jquery-1.10.2.min.js"></script> 
+<script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/scripts.js"></script>
 </body>
 </html>

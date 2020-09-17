@@ -10,7 +10,7 @@
 <body class="no_col_2">
 
 <div id="site">
-   <?php require 'includes/pagetop.php'; ?>
+    <?php require 'includes/pagetop.php'; ?>
     <div id="content">
         <div id="breadcrumbs" class="reset menu">
             <ul>
