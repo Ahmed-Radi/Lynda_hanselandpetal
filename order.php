@@ -12,6 +12,7 @@ if (isset($_POST['bouquet'])) {
 		}
 	}
 }
+// unset($_SESSION['quantity']['Peruvian_Lilies']);
 if(isset($_POST['cancel'])){
 	$_SESSION =[];
 	session_destroy();

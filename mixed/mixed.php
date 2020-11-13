@@ -1,3 +1,17 @@
+<?php
+$message='';
+$db = new MySQLi('localhost','phpwebdes','1234','hanselandpetal');
+if($db -> connect_error){
+    $message= $db->connect_error;
+}else{
+    // $message = 'Connection is OK';
+    $sql = 'SELECT * FROM arrangements';
+    $result = $db ->query($sql);
+    if($db->error){
+        $message = $db->error;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,8 +118,8 @@
             <h2 class="h3 inline_block">Mixed bouquets with the bright colors of Spring</h2>
             <div class="cols lg_margin">
                 <div class="col sub">
-                    <p class="w210">Hansel &amp; Petal combines the highest quality 
-                        flowers in unique, colorful arrangements and bouquets that are sure to 
+                    <p class="w210">Hansel &amp; Petal combines the highest quality
+                        flowers in unique, colorful arrangements and bouquets that are sure to
                         make everyone happy.</p>
                     <p>Choose from our popular arrangements or <a href="../bouquet.php" class="btn alt inconsistent_mt"><span class="normalcase">Create Your Own</span> Custom Bouquet</a></p>
                 </div>
@@ -118,127 +132,24 @@
                     </div>
                 </div>
             </div>
+            <?php
+            if($message){
+                echo "<h2>$message</h2>";
+            }else{
+            ?>
             <div class="page open">
+
                 <div class="section">
                     <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_arrangement_yellow_tulip.jpg" alt="Yellow Tulips" height="200" width="200">
+                        <li>
+                            <a href="details.php"> <img src="../images/200_arrangement_yellow_tulip.jpg" alt="Yellow Tulips" height="200" width="200">
                             <h3 class="h4">Burst of Yellow</h3>
                             <p class="reset">From $19.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_arrangement_163066655.jpg" alt="Mixed Mums" height="200" width="200">
-                            <h3 class="h4">Polka Dot Pail</h3>
-                            <p class="reset">From $25.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_tulips_daffodils_139756476.jpg" alt="Mixed Tulips" height="200" width="200">
-                            <h3 class="h4">Green Thumb</h3>
-                            <p class="reset">From $22.95 <b class="alert"><span>New!</span></b></p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_bouquet_watering_can_orange_163066621.jpg" alt="Watering Can with Mums" height="200" width="200">
-                            <h3 class="h4">It's Raining Flowers</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div class="section">
-                    <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_carnations_basket_92246977.jpg" alt="Basket of Carnations" height="200" width="200">
-                            <h3 class="h4">Get Well Soon</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_lilacs_tulips_157045915.jpg" alt="Tulips and Lilac" height="200" width="200">
-                            <h3 class="h4">Bon Anniversaire!</h3>
-                            <p class="reset">From $25.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_sunflowers_146748795.jpg" alt="Sunflowers" height="200" width="200">
-                            <h3 class="h4">Brighten Any Day</h3>
-                            <p class="reset">From $22.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_white_tulip_163199928.jpg" alt="White Tulips" height="200" width="200">
-                            <h3 class="h4">Purely Beautiful</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_tulips_daffodils_153986115.jpg" alt="Mixed Tulips" height="200" width="200">
-                            <h3 class="h4">Tea for Two</h3>
-                            <p class="reset">From $15.95 <b class="alert"><span>New!</span></b></p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_arrangement_94972439.jpg" alt="Mixed Bouquet" height="200" width="200">
-                            <h3 class="h4">Thinking of You</h3>
-                            <p class="reset">From $35.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_irises_lilies_87478811.jpg" alt="Irises and Lilies" height="200" width="200">
-                            <h3 class="h4">Simply Elegant</h3>
-                            <p class="reset">From $22.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_pink_white_daisies_146806077.jpg" alt="Pink and White Mums" height="200" width="200">
-                            <h3 class="h4">Blush and Bashful</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_tulips_watering_can_155465445.jpg" alt="Tulips in Water Can" height="200" width="200">
-                            <h3 class="h4">Morning in the Garden</h3>
-                            <p class="reset">From $29.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_birthday_163167595.jpg" alt="Orchid Bouquet" height="200" width="200">
-                            <h3 class="h4">Orchids for the Table</h3>
-                            <p class="reset">From $35.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_red_yellow_roses_119752732.jpg" alt="Red and Yellow Roses" height="200" width="200">
-                            <h3 class="h4">Classic Rose Bouqet</h3>
-                            <p class="reset">From $49.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_white_lily_pink_daisy_92493508.jpg" alt="Lilies and Roses" height="200" width="200">
-                            <h3 class="h4">Evening Surprise</h3>
-                            <p class="reset">From $29.95</p>
-                            </a> </li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_carnations_daisies_92007328.jpg" alt="Carnations and Daisies" height="200" width="200">
-                            <h3 class="h4">Cheer Up!</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_purple_daisy_rose104274224.jpg" alt="Daisy Bouquet" height="200" width="200">
-                            <h3 class="h4">Purple Galore</h3>
-                            <p class="reset">From $21.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_colorful_gerbera_119722776.jpg" alt="Mixed Gerbera Daisies" height="200" width="200">
-                            <h3 class="h4">Dotted Daisies</h3>
-                            <p class="reset">From $25.95 <b class="alert"><span>New!</span></b></p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_yellow_white_mums_147664285.jpg" alt="Daisy Mix" height="200" width="200">
-                            <h3 class="h4">Patio Picnicking</h3>
-                            <p class="reset">From $19.95</p>
-                            </a> </li>
-                    </ul>
-                </div>
-                <div class="section">
-                    <ul class="reset tiles">
-                        <li> <a href="details.php"> <img src="../images/200_tulips_daffodils2_153986183.jpg" alt="Mixed Tulips" height="200" width="200">
-                            <h3 class="h4">Box of Happiness</h3>
-                            <p class="reset">From $29.95 <b class="alert"><span>New!</span></b></p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_butterflies_120624479.jpg" alt="Daisies and Butterflies" height="200" width="200">
-                            <h3 class="h4">Bounty of Butterflies</h3>
-                            <p class="reset">From $25.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_tulips_irises_121357306.jpg" alt="Irises and Tulips" height="200" width="200">
-                            <h3 class="h4">Mardi Gras Mambo</h3>
-                            <p class="reset">From $29.95</p>
-                            </a> </li>
-                        <li> <a href="details.php"> <img src="../images/200_tulips_daffodils4_160232631.jpg" alt="Mixed Bulbs" height="200" width="200">
-                            <h3 class="h4">Cascade of Color</h3>
-                            <p class="reset">From $32.95</p>
-                            </a> </li>
-                    </ul>
-                </div>
+            <?php }// end of page?>
             </div>
         </div>
     </div>
@@ -267,16 +178,16 @@
             </ul>
             <img src="../images/logo.png" alt="Hansel and Petal" height="124" width="207"> </div>
         <p id="copyright" class="reset pull_out padding" role="contentinfo"><a href="http://www.ixd.hanselandpetal.com/">© 2013 Hansel and Petal</a></p>
-        <p id="disclaimer">Hansel &amp; Petal is a fictitious brand created by 
-            lynda.com solely for the purpose of training. All products and people 
-            associated with Hansel &amp; Petal are also fictitious. Any resemblance 
-            to real brands, products, or people is purely coincidental. Information 
-            provided about the product is also fictitious and should not be 
-            construed to be representative of actual products on the market in a 
+        <p id="disclaimer">Hansel &amp; Petal is a fictitious brand created by
+            lynda.com solely for the purpose of training. All products and people
+            associated with Hansel &amp; Petal are also fictitious. Any resemblance
+            to real brands, products, or people is purely coincidental. Information
+            provided about the product is also fictitious and should not be
+            construed to be representative of actual products on the market in a
             similar product category.</p>
     </div>
 </div>
-<script src="../js/jquery-1.10.2.min.js"></script> 
+<script src="../js/jquery-1.10.2.min.js"></script>
 <script src="../js/scripts.js"></script>
 </body>
 </html>
